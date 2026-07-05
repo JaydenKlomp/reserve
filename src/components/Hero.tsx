@@ -16,16 +16,17 @@ export default function Hero() {
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-dark">
             {hero.sub}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          {/* Onder 400px passen de knoppen niet naast elkaar: dan gestapeld op volle breedte */}
+          <div className="mt-10 flex flex-wrap gap-4 max-[400px]:flex-col">
             <a
               href={hero.ctaPrimary.href}
-              className="rounded-full bg-accent px-8 py-4 text-base font-bold text-accent-ink transition-transform hover:scale-105"
+              className="rounded-full bg-accent px-8 py-4 text-center text-base font-bold text-accent-ink transition-transform hover:scale-105"
             >
               {hero.ctaPrimary.label}
             </a>
             <a
               href={hero.ctaSecondary.href}
-              className="rounded-full border-2 border-white px-8 py-4 text-base font-bold text-white transition-colors hover:border-accent hover:text-accent"
+              className="rounded-full border-2 border-white px-8 py-4 text-center text-base font-bold text-white transition-colors hover:border-accent hover:text-accent"
             >
               {hero.ctaSecondary.label}
             </a>
