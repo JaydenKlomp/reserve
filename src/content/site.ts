@@ -12,9 +12,8 @@ export const site = {
     "ReServe geeft gebruikte padelballen en kokers een tweede leven. Padelclubs plaatsen een ReServe-inzamelvat, spelers leveren hun gebruikte materialen in en ReServe verwerkt alles duurzaam.",
   email: "info@reservepadel.nl",
   socials: {
-    // Handles/links volgen nog — placeholders
-    instagram: "https://instagram.com",
-    linkedin: "https://linkedin.com",
+    instagram: "https://www.instagram.com/joinreserve/",
+    linkedin: "https://www.linkedin.com/in/reserve-padel-261338417/",
   },
 };
 
@@ -73,7 +72,7 @@ export const impact = {
     },
   ],
   pilot: {
-    label: "Pilot gestart bij",
+    label: "In samenwerking met",
     club: "The Padellers",
     city: "Kerkrade",
   },
