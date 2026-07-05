@@ -33,7 +33,7 @@ export const concept = {
 
 export const steps = {
   heading: "Hoe het werkt",
-  sub: "Van vol vat tot tweede leven — in vijf stappen.",
+  sub: "Van vol vat tot tweede leven in vijf stappen.",
   items: [
     {
       title: "Vat op locatie",
@@ -93,7 +93,7 @@ export const earlyAdopter = {
 
 export const contact = {
   heading: "Contact",
-  sub: "Word partner of laten we samenwerken — we nemen snel contact op.",
+  sub: "Word partner of laten we samenwerken en dan zullen we snel contact opnemen",
   club: {
     label: "Ik ben een club",
     intro: "Plaats een ReServe-vat bij jouw club. Vul je gegevens in en we nemen contact op.",
