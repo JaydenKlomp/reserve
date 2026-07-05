@@ -2,11 +2,9 @@
 
 /*
  * ReServe design tokens.
- * De accentkleur is een placeholder (#D4FF00) — zodra de definitieve
- * hexcode bekend is hoeft alleen --brand-accent aangepast te worden.
  */
 :root {
-  --brand-accent: #d4ff00;
+  --brand-accent: #b3c524;
   --brand-accent-ink: #0a0a0a; /* tekstkleur óp de accentkleur */
   --brand-ink: #0a0a0a;
   --brand-ink-soft: #171717;

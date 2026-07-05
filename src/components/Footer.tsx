@@ -1,14 +1,13 @@
+import Image from "next/image";
 import { site } from "@/content/site";
 
 export default function Footer() {
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-12 md:flex-row md:justify-between">
-        <div className="text-center md:text-left">
-          <p className="text-lg font-extrabold">
-            Re<span className="text-accent">Serve</span>
-          </p>
-          <p className="mt-1 text-sm text-muted-dark">{site.tagline}</p>
+        <div className="flex flex-col items-center gap-2 md:items-start">
+          <Image src="/brand/logo.png" alt={site.name} width={900} height={420} className="h-9 w-auto" />
+          <p className="text-sm text-muted-dark">{site.tagline}</p>
         </div>
 
         <div className="flex items-center gap-6 text-sm font-medium">

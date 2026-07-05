@@ -23,15 +23,25 @@ npm run build      # productie-build ter controle
 
 **Zonder `RESEND_API_KEY` blijft het formulier gewoon werken** — aanvragen verschijnen dan alleen in de Vercel-functielogs in plaats van in de mailbox. Zet de key er dus zo snel mogelijk in.
 
-## Assets vervangen (placeholders)
+## Assets
+
+De brand-assets staan in `public/brand/` als PNG's, geëxporteerd (bijgesneden en verkleind)
+uit de aangeleverde ontwerp-SVG's ("Boven/Midden/Onder", de wrap-panelen van het vat):
+
+- `logo.png` — ReServe-wordmark met racket (header, footer en bovenste band van het vat)
+- `band-midden.png` — "Padelballen & kokers"-paneel (middelste band)
+- `band-onder.png` — lime slogan-band (onderste band)
+
+Het vat in de hero (`src/components/VatVisual.tsx`) is met deze panelen opgebouwd.
+De accentkleur is definitief: `#B3C524` (in `src/app/globals.css` → `--brand-accent`).
+
+### Nog openstaande placeholders
 
 | Placeholder | Waar | Vervangen door |
 |---|---|---|
-| Vat-illustratie | `src/components/VatVisual.tsx` | Echte foto van het vat: zet die in `public/` en render een `<Image>` in `Hero.tsx` |
-| Logo (tekst "ReServe") | `src/components/Header.tsx` en `Footer.tsx` | `<Image src="/logo.svg" />` |
-| Accentkleur `#D4FF00` | `src/app/globals.css` → `--brand-accent` | Definitieve hexcode (één regel aanpassen) |
 | Instagram/LinkedIn-links | `src/content/site.ts` → `socials` | Echte handles |
 | Impact-cijfers | `src/content/site.ts` → `impact.counters` | Echte aantallen zodra de pilot loopt |
+| Favicon | `src/app/favicon.ico` | Icoon-variant van het logo |
 
 ## Structuur (met oog op fase 2)
 

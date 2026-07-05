@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/content/site";
 
 const navItems = [
@@ -11,9 +12,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-ink/90 backdrop-blur border-b border-line-dark">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        {/* Logo-placeholder: vervang door <Image src="/logo.svg" /> zodra het logo binnen is */}
-        <a href="#" className="text-xl font-extrabold tracking-tight text-white">
-          Re<span className="text-accent">Serve</span>
+        <a href="#" aria-label={`${site.name} — naar boven`}>
+          <Image src="/brand/logo.png" alt={site.name} width={900} height={420} priority className="h-10 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Hoofdnavigatie">
