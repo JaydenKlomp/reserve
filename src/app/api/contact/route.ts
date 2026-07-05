@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { site } from "@/content/site";
 
 /**
  * Contactformulier-endpoint.
  *
- * E-mail gaat via Resend (https://resend.com) — zet in Vercel de env-vars:
- *   RESEND_API_KEY  – API-key van Resend
- *   CONTACT_TO      – ontvanger van aanvragen (default: info@reservepadel.nl)
- *   CONTACT_FROM    – afzender; moet een geverifieerd domein zijn.
- *                     Zolang reservepadel.nl nog niet geverifieerd is kun je
- *                     "ReServe <onboarding@resend.dev>" gebruiken.
+ * E-mail gaat via de SMTP-server van TransIP (de bestaande info@-mailbox).
+ * Zet in Vercel de env-vars:
+ *   SMTP_PASS  – wachtwoord van de mailbox (verplicht om te kunnen mailen)
+ *   SMTP_USER  – optioneel, default info@reservepadel.nl
+ *   SMTP_HOST  – optioneel, default smtp.transip.email
+ *   SMTP_PORT  – optioneel, default 465
+ *   CONTACT_TO – optioneel, ontvanger van aanvragen (default: info@reservepadel.nl)
  *
- * Zonder RESEND_API_KEY wordt de aanvraag alleen gelogd (zichtbaar in de
+ * Zonder SMTP_PASS wordt de aanvraag alleen gelogd (zichtbaar in de
  * Vercel-logs) zodat het formulier nooit stuk is voor de bezoeker.
  */
-
-const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
 type Payload = Record<string, string>;
 
@@ -34,33 +34,6 @@ function fieldRows(fields: Array<[label: string, value: string]>) {
         `<tr><td style="padding:4px 12px 4px 0;color:#737373;">${label}</td><td style="padding:4px 0;font-weight:600;">${escapeHtml(value)}</td></tr>`,
     )
     .join("");
-}
-
-async function sendEmail(apiKey: string, payload: {
-  from: string;
-  to: string;
-  subject: string;
-  html: string;
-  replyTo?: string;
-}) {
-  const res = await fetch(RESEND_ENDPOINT, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: payload.from,
-      to: [payload.to],
-      subject: payload.subject,
-      html: payload.html,
-      ...(payload.replyTo ? { reply_to: payload.replyTo } : {}),
-    }),
-  });
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`Resend gaf status ${res.status}: ${body}`);
-  }
 }
 
 export async function POST(request: Request) {
@@ -93,9 +66,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ongeldig e-mailadres" }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpUser = process.env.SMTP_USER ?? site.email;
   const to = process.env.CONTACT_TO ?? site.email;
-  const from = process.env.CONTACT_FROM ?? `ReServe <onboarding@resend.dev>`;
+  const from = `ReServe <${smtpUser}>`;
 
   const rows =
     type === "club"
@@ -112,27 +86,32 @@ export async function POST(request: Request) {
           ["Bericht", data.bericht],
         ]);
 
-  const notificationHtml = `
-    <h2>Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag via reservepadel.nl</h2>
-    <table style="font-family:sans-serif;font-size:14px;">${rows}</table>
-  `;
-
-  if (!apiKey) {
-    console.warn("[contact] RESEND_API_KEY ontbreekt — aanvraag alleen gelogd:", JSON.stringify(data));
+  if (!smtpPass) {
+    console.warn("[contact] SMTP_PASS ontbreekt — aanvraag alleen gelogd:", JSON.stringify(data));
     return NextResponse.json({ ok: true });
   }
 
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? "smtp.transip.email",
+    port: Number(process.env.SMTP_PORT ?? 465),
+    secure: (process.env.SMTP_PORT ?? "465") === "465",
+    auth: { user: smtpUser, pass: smtpPass },
+  });
+
   try {
-    await sendEmail(apiKey, {
+    await transporter.sendMail({
       from,
       to,
       replyTo: email,
       subject: `Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag — ${type === "club" ? data.clubNaam : data.bedrijf}`,
-      html: notificationHtml,
+      html: `
+        <h2>Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag via reservepadel.nl</h2>
+        <table style="font-family:sans-serif;font-size:14px;">${rows}</table>
+      `,
     });
 
     if (type === "club") {
-      await sendEmail(apiKey, {
+      await transporter.sendMail({
         from,
         to: email,
         subject: "We hebben je aanvraag ontvangen — ReServe",

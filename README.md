@@ -11,17 +11,20 @@ npm run dev        # http://localhost:3000
 npm run build      # productie-build ter controle
 ```
 
-## Deployen naar Vercel
+## Hosting & e-mail
 
-1. Push deze repo naar GitHub (of gebruik `npx vercel` direct vanuit deze map).
-2. Importeer het project in Vercel — framework wordt automatisch herkend, geen extra instellingen nodig.
-3. Zet de environment variables (zie `.env.example`):
-   - `RESEND_API_KEY` — API-key van [Resend](https://resend.com) voor het contactformulier.
-   - `CONTACT_TO` — optioneel, default `info@reservepadel.nl`.
-   - `CONTACT_FROM` — optioneel; zolang reservepadel.nl nog niet bij Resend geverifieerd is wordt `onboarding@resend.dev` gebruikt.
-4. Domein: voeg `reservepadel.nl` toe onder Project → Settings → Domains, en zet bij TransIP de DNS om (A-record naar `76.76.21.21` of CNAME `cname.vercel-dns.com` voor www).
+De site draait op Vercel (repo: github.com/JaydenKlomp/reserve, elke push naar `master`
+deployt automatisch). Het domein reservepadel.nl staat bij TransIP en wijst via DNS naar Vercel.
 
-**Zonder `RESEND_API_KEY` blijft het formulier gewoon werken** — aanvragen verschijnen dan alleen in de Vercel-functielogs in plaats van in de mailbox. Zet de key er dus zo snel mogelijk in.
+Het contactformulier mailt via de **SMTP-server van TransIP** (de info@-mailbox).
+Environment variables in Vercel (zie `.env.example`):
+
+- `SMTP_PASS` — wachtwoord van de info@-mailbox (verplicht om te kunnen mailen)
+- `SMTP_USER` / `SMTP_HOST` / `SMTP_PORT` — optioneel, defaults: `info@reservepadel.nl` / `smtp.transip.email` / `465`
+- `CONTACT_TO` — optioneel, ontvanger van aanvragen (default `info@reservepadel.nl`)
+
+**Zonder `SMTP_PASS` blijft het formulier gewoon werken** — aanvragen verschijnen dan alleen
+in de Vercel-functielogs in plaats van in de mailbox.
 
 ## Assets
 
