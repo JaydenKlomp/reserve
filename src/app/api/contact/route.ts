@@ -17,6 +17,9 @@ import { site } from "@/content/site";
  * Vercel-logs) zodat het formulier nooit stuk is voor de bezoeker.
  */
 
+// Twee SMTP-verzendingen kunnen samen langer duren dan de standaard functielimiet.
+export const maxDuration = 30;
+
 type Payload = Record<string, string>;
 
 function escapeHtml(value: string) {
@@ -98,39 +101,52 @@ export async function POST(request: Request) {
     auth: { user: smtpUser, pass: smtpPass },
   });
 
-  try {
-    await transporter.sendMail({
-      from,
-      to,
-      replyTo: email,
-      subject: `Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag — ${type === "club" ? data.clubNaam : data.bedrijf}`,
-      html: `
-        <h2>Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag via reservepadel.nl</h2>
-        <table style="font-family:sans-serif;font-size:14px;">${rows}</table>
-      `,
-    });
+  const notification = transporter.sendMail({
+    from,
+    to,
+    replyTo: email,
+    subject: `Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag — ${type === "club" ? data.clubNaam : data.bedrijf}`,
+    html: `
+      <h2>Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag via reservepadel.nl</h2>
+      <table style="font-family:sans-serif;font-size:14px;">${rows}</table>
+    `,
+  });
 
-    if (type === "club") {
-      await transporter.sendMail({
-        from,
-        to: email,
-        subject: "We hebben je aanvraag ontvangen — ReServe",
-        html: `
-          <div style="font-family:sans-serif;font-size:15px;line-height:1.6;">
-            <h2>Bedankt voor je aanvraag, ${escapeHtml(data.contactpersoon)}!</h2>
-            <p>We hebben de aanvraag van <strong>${escapeHtml(data.clubNaam)}</strong> goed ontvangen.
-            ReServe neemt zo snel mogelijk persoonlijk contact met je op om de plaatsing van een
-            inzamelvat te bespreken.</p>
-            <p>Samen maken we padel duurzamer. 🎾</p>
-            <p>— Team ReServe<br/><a href="mailto:${site.email}">${site.email}</a></p>
-          </div>
-        `,
-      });
-    }
+  const confirmation =
+    type === "club"
+      ? transporter.sendMail({
+          from,
+          to: email,
+          subject: "We hebben je aanvraag ontvangen — ReServe",
+          html: `
+            <div style="font-family:sans-serif;font-size:15px;line-height:1.6;">
+              <h2>Bedankt voor je aanvraag, ${escapeHtml(data.contactpersoon)}!</h2>
+              <p>We hebben de aanvraag van <strong>${escapeHtml(data.clubNaam)}</strong> goed ontvangen.
+              ReServe neemt zo snel mogelijk persoonlijk contact met je op om de plaatsing van een
+              inzamelvat te bespreken.</p>
+              <p>Samen maken we padel duurzamer. 🎾</p>
+              <p>— Team ReServe<br/><a href="mailto:${site.email}">${site.email}</a></p>
+            </div>
+          `,
+        })
+      : null;
 
-    return NextResponse.json({ ok: true });
-  } catch (error) {
-    console.error("[contact] Versturen mislukt:", error);
+  const [notifResult, confirmResult] = await Promise.allSettled([
+    notification,
+    confirmation ?? Promise.resolve(null),
+  ]);
+
+  // De notificatie naar ReServe is essentieel: als die faalt, melden we een fout.
+  if (notifResult.status === "rejected") {
+    console.error("[contact] Notificatie versturen mislukt:", notifResult.reason);
     return NextResponse.json({ error: "Versturen mislukt" }, { status: 502 });
   }
+
+  // Een mislukte bevestigingsmail is geen reden om de aanvraag als mislukt te tonen —
+  // de aanvraag is dan immers al binnen. Alleen loggen.
+  if (confirmResult.status === "rejected") {
+    console.error("[contact] Bevestigingsmail mislukt:", confirmResult.reason);
+  }
+
+  return NextResponse.json({ ok: true });
 }
