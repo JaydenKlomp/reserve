@@ -34,9 +34,11 @@ export default function Impact() {
               <p className="text-sm font-bold uppercase tracking-widest text-accent">
                 {impact.pilot.label}
               </p>
-              <p className="mt-2 text-2xl font-extrabold">
-                {impact.pilot.club}, {impact.pilot.city}
-              </p>
+              {impact.pilot.partners.map((partner) => (
+                <p key={partner.name} className="mt-2 text-2xl font-extrabold">
+                  {partner.name}, {partner.city}
+                </p>
+              ))}
             </div>
             <div className="mt-8 grid grid-cols-3 gap-6 md:mt-0">
               {impact.counters.map((counter) => (

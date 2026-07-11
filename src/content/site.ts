@@ -27,7 +27,7 @@ export const hero = {
 
 export const concept = {
   heading: "Het concept",
-  body: "ReServe geeft gebruikte padelballen én kokers een tweede leven. Samen met padelclubs plaatsen wij herkenbare inzamelpunten waar spelers hun gebruikte materialen eenvoudig kunnen inleveren. Vervolgens zorgen wij ervoor dat deze materialen worden ingezameld en verwerkt voor hergebruik of recycling. Zo maken we padel stap voor stap duurzamer.",
+  body: "ReServe zamelt gebruikte padelballen en kokers in bij padelclubs en werkt aan een circulaire route voor hergebruik en recycling. Samen met padelclubs plaatsen wij herkenbare inzamelpunten waar spelers hun gebruikte materialen eenvoudig kunnen inleveren. Zo maken we padel stap voor stap duurzamer.",
 };
 
 export const steps = {
@@ -47,8 +47,8 @@ export const steps = {
       body: "Zodra het vat vol is, plant ReServe een ophaalmoment.",
     },
     {
-      title: "Duurzame verwerking",
-      body: "ReServe verwerkt de materialen voor hergebruik of recycling.",
+      title: "Onderzoek & verwerking",
+      body: "ReServe werkt met partners aan de best passende route voor hergebruik of recycling.",
     },
     {
       title: "Zichtbare impact",
@@ -73,14 +73,24 @@ export const impact = {
   ],
   pilot: {
     label: "In samenwerking met",
-    club: "The Padellers",
-    city: "Kerkrade",
+    partners: [
+      { name: "The Padellers", city: "Kerkrade" },
+      { name: "Arenal", city: "Kerkrade" },
+    ],
   },
   // Cijfers volgen zodra de pilot loopt — nu bewust placeholders
   counters: [
     { label: "Ballen ingezameld", value: null },
     { label: "Kokers ingezameld", value: null },
-    { label: "Deelnemende clubs", value: 1 },
+    { label: "Deelnemende clubs", value: 2 },
+  ],
+};
+
+export const materials = {
+  heading: "Wat gebeurt er met de ingezamelde materialen?",
+  paragraphs: [
+    "Tijdens de pilotfase verzamelt ReServe gebruikte padelballen en kokers bij aangesloten clubs. De materialen worden apart geregistreerd en tijdelijk opgeslagen, zodat we inzicht krijgen in volume, vervuiling en verwerkingsmogelijkheden.",
+    "Op basis daarvan werken we aan samenwerkingen met recyclingbedrijven, merken en circulaire partners.",
   ],
 };
 
@@ -92,13 +102,19 @@ export const earlyAdopter = {
 
 export const contact = {
   heading: "Contact",
-  sub: "Word partner of laten we samenwerken en dan zullen we snel contact opnemen",
+  sub: "Ben je een padelclub, merk of potentiële partner? Laat je gegevens achter en we nemen snel contact met je op.",
   club: {
     label: "Ik ben een club",
-    intro: "Plaats een ReServe-vat bij jouw club. Vul je gegevens in en we nemen contact op.",
+    intro:
+      "Maak duurzaamheid zichtbaar op jouw club met een herkenbaar inzamelpunt voor gebruikte padelballen en kokers.",
   },
   brand: {
     label: "Ik ben een merk",
-    intro: "Ondersteun ReServe als merk of sponsor. Laat je gegevens achter en we plannen een gesprek.",
+    intro: "Werk samen aan zichtbare circulariteit binnen de padelsport.",
+  },
+  processor: {
+    label: "Ik ben een verwerker",
+    intro:
+      "Denk mee over de verwerking of herbestemming van gebruikte padelballen en kunststof kokers uit de padelbranche.",
   },
 };

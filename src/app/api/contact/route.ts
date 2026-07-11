@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ongeldige aanvraag" }, { status: 400 });
   }
 
-  const type = data.type === "merk" ? "merk" : data.type === "club" ? "club" : null;
+  const type = ["club", "merk", "verwerker"].includes(data.type) ? data.type : null;
   if (!type) {
     return NextResponse.json({ error: "Ongeldig type" }, { status: 400 });
   }
@@ -105,9 +105,9 @@ export async function POST(request: Request) {
     from,
     to,
     replyTo: email,
-    subject: `Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag — ${type === "club" ? data.clubNaam : data.bedrijf}`,
+    subject: `Nieuwe ${type}-aanvraag — ${type === "club" ? data.clubNaam : data.bedrijf}`,
     html: `
-      <h2>Nieuwe ${type === "club" ? "club" : "merk"}-aanvraag via reservepadel.nl</h2>
+      <h2>Nieuwe ${type}-aanvraag via reservepadel.nl</h2>
       <table style="font-family:sans-serif;font-size:14px;">${rows}</table>
     `,
   });

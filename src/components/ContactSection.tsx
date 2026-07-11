@@ -3,8 +3,14 @@
 import { useState, type FormEvent } from "react";
 import { contact, site } from "@/content/site";
 
-type Audience = "club" | "merk";
+type Audience = "club" | "merk" | "verwerker";
 type Status = "idle" | "sending" | "sent" | "error";
+
+const audiences: Array<{ key: Audience; label: string; intro: string }> = [
+  { key: "club", label: contact.club.label, intro: contact.club.intro },
+  { key: "merk", label: contact.brand.label, intro: contact.brand.intro },
+  { key: "verwerker", label: contact.processor.label, intro: contact.processor.intro },
+];
 
 const inputClass =
   "w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-muted focus:border-ink focus:outline-none";
@@ -39,6 +45,8 @@ export default function ContactSection() {
     setStatus("idle");
   }
 
+  const active = audiences.find((a) => a.key === audience)!;
+
   return (
     <section id="contact" className="bg-paper scroll-mt-16">
       <div className="mx-auto max-w-3xl px-5 py-20 md:py-28">
@@ -50,14 +58,9 @@ export default function ContactSection() {
         </h2>
         <p className="mt-4 text-center text-lg text-ink-soft">{contact.sub}</p>
 
-        {/* Keuze club / merk */}
-        <div className="mt-10 grid grid-cols-2 gap-3" role="tablist" aria-label="Kies wie je bent">
-          {(
-            [
-              ["club", contact.club.label],
-              ["merk", contact.brand.label],
-            ] as const
-          ).map(([key, label]) => (
+        {/* Keuze club / merk / verwerker */}
+        <div className="mt-10 grid gap-3 sm:grid-cols-3" role="tablist" aria-label="Kies wie je bent">
+          {audiences.map(({ key, label }) => (
             <button
               key={key}
               type="button"
@@ -75,9 +78,7 @@ export default function ContactSection() {
           ))}
         </div>
 
-        <p className="mt-6 text-center text-ink-soft">
-          {audience === "club" ? contact.club.intro : contact.brand.intro}
-        </p>
+        <p className="mt-6 text-center text-ink-soft">{active.intro}</p>
 
         {status === "sent" ? (
           <div className="mt-8 rounded-2xl border border-line bg-paper-soft p-8 text-center">
