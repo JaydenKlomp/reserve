@@ -1,5 +1,5 @@
 import { hero } from "@/content/site";
-import VatVisual from "./VatVisual";
+import VatShowcase from "./VatShowcase";
 
 export default function Hero() {
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
         </div>
 
         <div className="flex justify-center">
-          <VatVisual className="w-64 sm:w-80 lg:w-96" />
+          <VatShowcase className="w-64 sm:w-80 lg:w-96" />
         </div>
       </div>
     </section>
