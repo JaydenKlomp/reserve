@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import HowItWorks from "@/components/HowItWorks";
 import Materials from "@/components/Materials";
-import EarlyAdopter from "@/components/EarlyAdopter";
+import CtaBanner from "@/components/CtaBanner";
 import { howItWorksPage } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -14,9 +14,9 @@ export default function HoeHetWerktPage() {
   return (
     <>
       <PageHeader kicker={howItWorksPage.kicker} heading={howItWorksPage.heading} intro={howItWorksPage.intro} />
-      <HowItWorks showHeader={false} />
+      <HowItWorks variant="detailed" />
       <Materials />
-      <EarlyAdopter />
+      <CtaBanner {...howItWorksPage.cta} />
     </>
   );
 }

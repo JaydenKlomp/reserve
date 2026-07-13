@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import Materials from "@/components/Materials";
-import EarlyAdopter from "@/components/EarlyAdopter";
+import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/Reveal";
 import { impact, pilotPage } from "@/content/site";
 
@@ -15,6 +14,7 @@ export default function PilotPage() {
     <>
       <PageHeader kicker={pilotPage.kicker} heading={pilotPage.heading} intro={pilotPage.intro} />
 
+      {/* Wat we willen leren */}
       <section className="bg-paper">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <Reveal>
@@ -33,7 +33,7 @@ export default function PilotPage() {
             ))}
           </div>
 
-          {/* Partners + tellers, zelfde blok als op de homepage */}
+          {/* Partners + tellers */}
           <Reveal delay={200}>
             <div className="mt-6 rounded-2xl bg-ink p-8 text-white md:flex md:items-center md:justify-between">
               <div>
@@ -58,18 +58,37 @@ export default function PilotPage() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Tijdlijn */}
+      <section className="bg-ink text-white">
+        <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <Reveal>
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">De planning</h2>
+          </Reveal>
+          <ol className="mt-12 grid gap-6 md:grid-cols-3">
+            {pilotPage.timeline.map((item, i) => (
+              <Reveal key={item.period} delay={i * 100}>
+                <li className="h-full rounded-2xl border border-line-dark bg-ink-soft p-8">
+                  <p className="text-sm font-bold uppercase tracking-widest text-accent">{item.period}</p>
+                  <h3 className="mt-3 text-lg font-bold">{item.title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted-dark">{item.body}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
 
           {/* Foto-placeholder: vervangen door echte pilotfoto's zodra beschikbaar */}
           <Reveal delay={300}>
-            <div className="mt-6 flex h-56 items-center justify-center rounded-2xl border-2 border-dashed border-line bg-paper-soft">
-              <p className="px-6 text-center text-muted">{pilotPage.photosNote}</p>
+            <div className="mt-6 flex h-56 items-center justify-center rounded-2xl border-2 border-dashed border-line-dark">
+              <p className="px-6 text-center text-muted-dark">{pilotPage.photosNote}</p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <Materials />
-      <EarlyAdopter />
+      <CtaBanner {...pilotPage.cta} />
     </>
   );
 }

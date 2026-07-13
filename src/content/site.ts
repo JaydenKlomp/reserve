@@ -42,26 +42,37 @@ export const concept = {
 export const steps = {
   heading: "Hoe het werkt",
   sub: "Van vol vat tot tweede leven in vijf stappen.",
+  // body = korte versie (kaarten), detail = extra uitleg (alleen op /hoe-het-werkt)
   items: [
     {
       title: "Vat op locatie",
       body: "De club ontvangt een ReServe-inzamelvat op een zichtbare plek.",
+      detail:
+        "We stemmen samen een goede plek af — bij de banen, de bar of de entree. Het vat is direct herkenbaar en meteen klaar voor gebruik.",
     },
     {
       title: "Spelers leveren in",
       body: "Spelers leveren gebruikte padelballen en kokers eenvoudig in.",
+      detail:
+        "Geen gedoe: gebruikte ballen en lege kokers gaan door de inworpopening. De communicatie richting leden pakken we samen met de club op.",
     },
     {
       title: "Ophaalmoment",
       body: "Zodra het vat vol is, plant ReServe een ophaalmoment.",
+      detail:
+        "De club geeft een seintje of we plannen het periodiek in. ReServe komt langs en leegt of wisselt het vat — de club heeft er geen werk aan.",
     },
     {
       title: "Onderzoek & verwerking",
       body: "ReServe werkt met partners aan de best passende route voor hergebruik of recycling.",
+      detail:
+        "Ingezameld materiaal wordt geregistreerd en opgeslagen. Samen met partners onderzoeken we per stroom welke route voor hergebruik of recycling het beste past.",
     },
     {
       title: "Zichtbare impact",
       body: "De club draagt zichtbaar bij aan een circulaire padelsport.",
+      detail:
+        "Wat jouw club inzamelt telt mee in de cijfers en in het verhaal richting leden, bezoekers en partners.",
     },
   ],
 };
@@ -117,6 +128,12 @@ export const howItWorksPage = {
   heading: "Hoe het werkt",
   intro:
     "Van gebruikte bal tot mogelijke nieuwe grondstof: zo werkt inzamelen met ReServe, stap voor stap.",
+  cta: {
+    heading: "Klaar om in te zamelen op jouw club?",
+    sub: "Bekijk wat ReServe voor jouw club betekent en wat het van je vraagt.",
+    label: "Voor clubs",
+    href: "/voor-clubs",
+  },
 };
 
 export const clubsPage = {
@@ -141,6 +158,54 @@ export const clubsPage = {
       body: "Als één van de eerste ReServe-clubs bouw je mee aan een circulaire padelsport — een verhaal dat je als club mag uitdragen.",
     },
   ],
+  process: {
+    heading: "Wat vraagt het van jouw club?",
+    sub: "Weinig — dat is precies het idee.",
+    items: [
+      {
+        title: "Een zichtbare plek",
+        body: "Meer dan een goede plek voor het vat is er niet nodig: bij de bar, de entree of de banen.",
+      },
+      {
+        title: "Samen communiceren",
+        body: "We denken mee over hoe je leden informeert; de club deelt het via de eigen kanalen.",
+      },
+      {
+        title: "Wij doen de rest",
+        body: "Leveren, ophalen, registreren en het vervolgtraject — daar heeft de club geen omkijken naar.",
+      },
+    ],
+  },
+  faq: {
+    heading: "Veelgestelde vragen",
+    items: [
+      {
+        question: "Wat mag er in het vat?",
+        answer:
+          "Gebruikte padelballen en lege kunststof kokers. Ander afval hoort er niet in — zo houden we de stroom schoon voor hergebruik en recycling.",
+      },
+      {
+        question: "Wie leegt het vat?",
+        answer: "ReServe. Zodra het vat vol raakt, plannen we samen een ophaalmoment.",
+      },
+      {
+        question: "Wat kost het onze club?",
+        answer:
+          "Daar maken we samen afspraken over. Neem contact op en we bespreken wat past bij jouw club.",
+      },
+      {
+        question: "Wat levert het onze club op?",
+        answer:
+          "Een zichtbare duurzame stap richting leden en bezoekers, en een verhaal dat je als club mag uitdragen — inclusief cijfers over wat er is ingezameld.",
+      },
+    ],
+  },
+  cta: {
+    heading: "Plaats een ReServe-vat op jouw club",
+    sub: "Sluit je aan bij The Padellers en Arenal — en loop voorop in een duurzamere padelsport.",
+    label: "Vul het formulier in",
+    href: "#contact",
+  },
 };
 
 export const brandsPage = {
@@ -179,6 +244,12 @@ export const aboutPage = {
     "ReServe, een initiatief van Délan Klomp, wil die stroom zichtbaar maken én verminderen. Samen met padelclubs plaatsen we herkenbare inzamelpunten waar spelers hun gebruikte ballen en kokers eenvoudig kwijt kunnen.",
     "We staan bewust aan het begin: tijdens de pilotfase onderzoeken we hoeveel er binnenkomt, in welke staat, en welke routes voor hergebruik en recycling het beste passen. Die kennis delen we met clubs, merken en verwerkers die mee willen bouwen aan een circulaire padelsport.",
   ],
+  cta: {
+    heading: "Kennismaken of meedenken?",
+    sub: "Of je nu een club, merk of verwerker bent — we horen graag van je.",
+    label: "Neem contact op",
+    href: "/contact",
+  },
 };
 
 export const pilotPage = {
@@ -194,7 +265,30 @@ export const pilotPage = {
     "In welke staat zijn de materialen — en wat betekent dat voor hergebruik of recycling?",
     "Wat werkt er in de praktijk voor clubs en spelers?",
   ],
+  timeline: [
+    {
+      period: "Juli 2026",
+      title: "Start van de pilot",
+      body: "De eerste inzamelvaten staan bij The Padellers en Arenal in Kerkrade.",
+    },
+    {
+      period: "Zomer 2026",
+      title: "Inzamelen & meten",
+      body: "We volgen hoe snel de vaten vullen en registreren het volume en de staat van de materialen.",
+    },
+    {
+      period: "Najaar 2026",
+      title: "Evalueren & opschalen",
+      body: "Op basis van de resultaten bepalen we samen met partners de verwerkingsroute en openen we voor meer clubs.",
+    },
+  ],
   photosNote: "Foto's van de vaten op locatie volgen binnenkort.",
+  cta: {
+    heading: "Wil jouw club meedoen met het vervolg?",
+    sub: "Na de pilotfase sluiten we nieuwe clubs aan. Meld je interesse alvast.",
+    label: "Word partner",
+    href: "/contact",
+  },
 };
 
 export const contact = {

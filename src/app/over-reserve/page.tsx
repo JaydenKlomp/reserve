@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import EarlyAdopter from "@/components/EarlyAdopter";
+import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/Reveal";
 import { aboutPage } from "@/content/site";
 
@@ -26,7 +26,7 @@ export default function OverReservePage() {
         </div>
       </section>
 
-      <EarlyAdopter />
+      <CtaBanner {...aboutPage.cta} />
     </>
   );
 }
