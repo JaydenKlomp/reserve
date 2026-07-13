@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { impact } from "@/content/site";
 import Reveal from "./Reveal";
 
@@ -53,6 +54,15 @@ export default function Impact() {
               ))}
             </div>
           </div>
+        </Reveal>
+
+        <Reveal delay={300}>
+          <Link
+            href="/pilot"
+            className="mt-8 inline-block font-bold text-ink underline decoration-accent decoration-2 underline-offset-4 hover:text-ink-soft"
+          >
+            Meer over de pilot
+          </Link>
         </Reveal>
       </div>
     </section>

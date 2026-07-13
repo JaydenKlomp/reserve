@@ -17,6 +17,15 @@ export const site = {
   },
 };
 
+export const nav = [
+  { label: "Hoe het werkt", href: "/hoe-het-werkt" },
+  { label: "Voor clubs", href: "/voor-clubs" },
+  { label: "Voor merken", href: "/voor-merken" },
+  { label: "Pilot", href: "/pilot" },
+  { label: "Over ReServe", href: "/over-reserve" },
+  { label: "Contact", href: "/contact" },
+];
+
 export const hero = {
   kicker: "Circulair initiatief voor padel",
   tagline: "Samen maken we padel duurzamer.",
@@ -97,7 +106,95 @@ export const materials = {
 export const earlyAdopter = {
   heading: "Word één van de eerste ReServe-clubs",
   sub: "Bouw samen met ons aan een duurzamere padelsport.",
-  cta: { label: "Word partner", href: "#contact" },
+  cta: { label: "Word partner", href: "/contact" },
+};
+
+export const howItWorksPage = {
+  title: "Hoe het werkt",
+  description:
+    "Zo werkt inzamelen met ReServe: van een inzamelvat op jouw club tot onderzoek naar de beste route voor hergebruik en recycling.",
+  kicker: "Stappenplan",
+  heading: "Hoe het werkt",
+  intro:
+    "Van gebruikte bal tot mogelijke nieuwe grondstof: zo werkt inzamelen met ReServe, stap voor stap.",
+};
+
+export const clubsPage = {
+  title: "Voor clubs",
+  description:
+    "Plaats een ReServe-inzamelvat bij jouw padelclub en maak duurzaamheid zichtbaar voor leden en bezoekers.",
+  kicker: "Voor clubs",
+  heading: "Maak duurzaamheid zichtbaar op jouw club",
+  intro:
+    "Met een herkenbaar ReServe-inzamelpunt voor gebruikte padelballen en kokers laat jouw club zien dat duurzaamheid meer is dan een woord.",
+  benefits: [
+    {
+      title: "Zichtbaar duurzaam",
+      body: "Het ReServe-vat staat op een zichtbare plek en laat leden en bezoekers direct zien dat jouw club werk maakt van duurzaamheid.",
+    },
+    {
+      title: "Geen omkijken",
+      body: "ReServe levert het vat, plant de ophaalmomenten en registreert wat er wordt ingezameld. Jouw club hoeft er niets extra's voor te doen.",
+    },
+    {
+      title: "Vooroplopen",
+      body: "Als één van de eerste ReServe-clubs bouw je mee aan een circulaire padelsport — een verhaal dat je als club mag uitdragen.",
+    },
+  ],
+};
+
+export const brandsPage = {
+  title: "Voor merken",
+  description:
+    "Werk als merk of sponsor samen met ReServe aan zichtbare circulariteit binnen de padelsport.",
+  kicker: "Voor merken",
+  heading: "Werk samen aan zichtbare circulariteit",
+  intro:
+    "Padel groeit hard — en de afvalstroom groeit mee. ReServe biedt merken een geloofwaardige plek in het duurzame verhaal van de sport.",
+  offers: [
+    {
+      title: "Zichtbaarheid op locatie",
+      body: "De inzamelvaten staan op zichtbare plekken bij padelclubs. Een plek waar jouw merk onderdeel kan zijn van het circulaire verhaal.",
+    },
+    {
+      title: "Circulaire samenwerking",
+      body: "Denk mee over hergebruik en herbestemming van ballen en kokers, en verbind jouw merk aan concrete uitkomsten.",
+    },
+    {
+      title: "Samen groeien",
+      body: "ReServe staat aan het begin van de groei. Partners van het eerste uur groeien mee met elke club die aansluit.",
+    },
+  ],
+  note: "De sponsorpakketten worden op dit moment vormgegeven. Interesse? Laat je gegevens achter, dan plannen we een gesprek en denken we samen na over een passende invulling.",
+};
+
+export const aboutPage = {
+  title: "Over ReServe",
+  description:
+    "ReServe is een initiatief van Délan Klomp dat gebruikte padelballen en kokers inzamelt bij padelclubs en werkt aan een circulaire route voor hergebruik en recycling.",
+  kicker: "Over ReServe",
+  heading: "Waarom ReServe bestaat",
+  paragraphs: [
+    "Padel is de snelst groeiende sport van Nederland — en elke wedstrijd, training en toernooi laat hetzelfde achter: gebruikte ballen en lege kokers. Jaarlijks verdwijnen er honderdduizenden padelballen in het restafval.",
+    "ReServe, een initiatief van Délan Klomp, wil die stroom zichtbaar maken én verminderen. Samen met padelclubs plaatsen we herkenbare inzamelpunten waar spelers hun gebruikte ballen en kokers eenvoudig kwijt kunnen.",
+    "We staan bewust aan het begin: tijdens de pilotfase onderzoeken we hoeveel er binnenkomt, in welke staat, en welke routes voor hergebruik en recycling het beste passen. Die kennis delen we met clubs, merken en verwerkers die mee willen bouwen aan een circulaire padelsport.",
+  ],
+};
+
+export const pilotPage = {
+  title: "Pilot",
+  description:
+    "In juli 2026 startte ReServe een pilot in Kerkrade, samen met The Padellers en Arenal. Dit is wat we doen en meten.",
+  kicker: "Pilot",
+  heading: "De pilot in Kerkrade",
+  intro:
+    "In juli 2026 startte ReServe een pilot bij The Padellers en Arenal in Kerkrade. Hier staan de eerste inzamelvaten, en hier leren we wat er nodig is om padel circulair te maken.",
+  goals: [
+    "Hoeveel ballen en kokers komen er binnen, en hoe snel?",
+    "In welke staat zijn de materialen — en wat betekent dat voor hergebruik of recycling?",
+    "Wat werkt er in de praktijk voor clubs en spelers?",
+  ],
+  photosNote: "Foto's van de vaten op locatie volgen binnenkort.",
 };
 
 export const contact = {

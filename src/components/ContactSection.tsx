@@ -15,8 +15,14 @@ const audiences: Array<{ key: Audience; label: string; intro: string }> = [
 const inputClass =
   "w-full rounded-xl border border-line bg-paper px-4 py-3 text-ink placeholder:text-muted focus:border-ink focus:outline-none";
 
-export default function ContactSection() {
-  const [audience, setAudience] = useState<Audience>("club");
+export default function ContactSection({
+  initialAudience = "club",
+  showHeader = true,
+}: {
+  initialAudience?: Audience;
+  showHeader?: boolean;
+}) {
+  const [audience, setAudience] = useState<Audience>(initialAudience);
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -50,13 +56,17 @@ export default function ContactSection() {
   return (
     <section id="contact" className="bg-paper scroll-mt-16">
       <div className="mx-auto max-w-3xl px-5 py-20 md:py-28">
-        <p className="mb-3 text-center text-sm font-bold uppercase tracking-widest text-muted">
-          {contact.heading}
-        </p>
-        <h2 className="text-center text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
-          Doe mee met ReServe
-        </h2>
-        <p className="mt-4 text-center text-lg text-ink-soft">{contact.sub}</p>
+        {showHeader && (
+          <>
+            <p className="mb-3 text-center text-sm font-bold uppercase tracking-widest text-muted">
+              {contact.heading}
+            </p>
+            <h2 className="text-center text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+              Doe mee met ReServe
+            </h2>
+            <p className="mt-4 text-center text-lg text-ink-soft">{contact.sub}</p>
+          </>
+        )}
 
         {/* Keuze club / merk / verwerker */}
         <div className="mt-10 grid gap-3 sm:grid-cols-3" role="tablist" aria-label="Kies wie je bent">
