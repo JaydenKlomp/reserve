@@ -106,7 +106,7 @@ function LocalEnvironment() {
 
 // Basis-schuinstand: het vat staat een tikje gekanteld en draait om die schuine as
 const BASE_TILT_X = 0.14;
-const BASE_TILT_Z = -0.16;
+const BASE_TILT_Z = 0.1;
 
 function Barrel() {
   const tiltGroup = useRef<THREE.Group>(null);
