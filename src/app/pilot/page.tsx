@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { existsSync } from "fs";
+import path from "path";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import CtaBanner from "@/components/CtaBanner";
 import Reveal from "@/components/Reveal";
@@ -79,12 +82,34 @@ export default function PilotPage() {
             ))}
           </ol>
 
-          {/* Foto-placeholder: vervangen door echte pilotfoto's zodra beschikbaar */}
-          <Reveal delay={300}>
-            <div className="mt-6 flex h-56 items-center justify-center rounded-2xl border-2 border-dashed border-line-dark">
-              <p className="px-6 text-center text-muted-dark">{pilotPage.photosNote}</p>
-            </div>
-          </Reveal>
+          {/* Pilotfoto's: ontbrekende bestanden tonen automatisch een placeholder */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {pilotPage.photos.map((photo, i) => {
+              const exists = existsSync(path.join(process.cwd(), "public", photo.src));
+              return (
+                <Reveal key={photo.src} delay={i * 100}>
+                  <figure>
+                    {exists ? (
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        width={800}
+                        height={1000}
+                        className="aspect-[4/5] w-full rounded-2xl object-cover"
+                      />
+                    ) : (
+                      <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border-2 border-dashed border-line-dark">
+                        <p className="px-6 text-center text-sm text-muted-dark">Foto volgt binnenkort</p>
+                      </div>
+                    )}
+                    <figcaption className="mt-3 text-sm font-medium text-muted-dark">
+                      {photo.caption}
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 

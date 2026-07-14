@@ -282,7 +282,25 @@ export const pilotPage = {
       body: "Op basis van de resultaten bepalen we samen met partners de verwerkingsroute en openen we voor meer clubs.",
     },
   ],
-  photosNote: "Foto's van de vaten op locatie volgen binnenkort.",
+  // Ontbrekende foto's tonen automatisch een nette placeholder totdat het
+  // bestand in public/photos staat
+  photos: [
+    {
+      src: "/photos/pilot-arenal.jpg",
+      alt: "ReServe-inzamelvat in het clubhuis van Arenal Kerkrade",
+      caption: "Arenal, Kerkrade",
+    },
+    {
+      src: "/photos/pilot-padellers.jpg",
+      alt: "ReServe-inzamelvat bij de banen van The Padellers Kerkrade",
+      caption: "The Padellers, Kerkrade",
+    },
+    {
+      src: "/photos/vaten.jpg",
+      alt: "Twee ReServe-inzamelvaten naast elkaar",
+      caption: "De ReServe-inzamelvaten",
+    },
+  ],
   cta: {
     heading: "Wil jouw club meedoen met het vervolg?",
     sub: "Na de pilotfase sluiten we nieuwe clubs aan. Meld je interesse alvast.",
