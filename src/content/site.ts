@@ -82,8 +82,8 @@ export const impact = {
   facts: [
     {
       icon: "🎾",
-      title: "Honderdduizenden ballen",
-      body: "Jaarlijks worden honderdduizenden padelballen weggegooid in Nederland.",
+      title: "Ruim 5 miljoen ballen",
+      body: "Jaarlijks worden er in Nederland naar schatting ruim 5 miljoen tennis- en padelballen afgedankt. Het overgrote deel verdwijnt bij het restafval.",
     },
     {
       icon: "♻️",
