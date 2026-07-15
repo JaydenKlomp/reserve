@@ -230,7 +230,6 @@ export const brandsPage = {
       body: "ReServe staat aan het begin van de groei. Partners van het eerste uur groeien mee met elke club die aansluit.",
     },
   ],
-  note: "De sponsorpakketten worden op dit moment vormgegeven. Interesse? Laat je gegevens achter, dan plannen we een gesprek en denken we samen na over een passende invulling.",
 };
 
 export const aboutPage = {

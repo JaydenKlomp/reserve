@@ -26,12 +26,6 @@ export default function VoorMerkenPage() {
               </Reveal>
             ))}
           </div>
-
-          <Reveal delay={200}>
-            <div className="mt-6 rounded-2xl bg-ink p-8 text-white">
-              <p className="text-lg leading-relaxed">{brandsPage.note}</p>
-            </div>
-          </Reveal>
         </div>
       </section>
 
