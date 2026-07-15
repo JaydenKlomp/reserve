@@ -14,12 +14,12 @@ export default function VoorMerkenPage() {
     <>
       <PageHeader kicker={brandsPage.kicker} heading={brandsPage.heading} intro={brandsPage.intro} />
 
-      <section className="bg-paper">
+      <section className="bg-paper-soft">
         <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
           <div className="grid gap-6 md:grid-cols-3">
             {brandsPage.offers.map((offer, i) => (
               <Reveal key={offer.title} delay={i * 100}>
-                <div className="h-full rounded-2xl border border-line bg-paper-soft p-8">
+                <div className="h-full rounded-2xl border border-line bg-paper p-8">
                   <h2 className="text-xl font-bold text-ink">{offer.title}</h2>
                   <p className="mt-3 leading-relaxed text-ink-soft">{offer.body}</p>
                 </div>
