@@ -105,7 +105,7 @@ export async function POST(request: Request) {
     from,
     to,
     replyTo: email,
-    subject: `Nieuwe ${type}-aanvraag: ${type === "club" ? data.clubNaam : data.bedrijf}`,
+    subject: `Nieuwe ${type}-aanvraag — ${type === "club" ? data.clubNaam : data.bedrijf}`,
     html: `
       <h2>Nieuwe ${type}-aanvraag via reservepadel.nl</h2>
       <table style="font-family:sans-serif;font-size:14px;">${rows}</table>
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
       ? transporter.sendMail({
           from,
           to: email,
-          subject: "We hebben je aanvraag ontvangen | ReServe",
+          subject: "We hebben je aanvraag ontvangen — ReServe",
           html: `
             <div style="font-family:sans-serif;font-size:15px;line-height:1.6;">
               <h2>Bedankt voor je aanvraag, ${escapeHtml(data.contactpersoon)}!</h2>
@@ -125,7 +125,7 @@ export async function POST(request: Request) {
               ReServe neemt zo snel mogelijk persoonlijk contact met je op om de plaatsing van een
               inzamelvat te bespreken.</p>
               <p>Samen maken we padel duurzamer. 🎾</p>
-              <p>Team ReServe<br/><a href="mailto:${site.email}">${site.email}</a></p>
+              <p>— Team ReServe<br/><a href="mailto:${site.email}">${site.email}</a></p>
             </div>
           `,
         })

@@ -14,12 +14,12 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
   title: {
-    default: `${site.name} | ${site.tagline}`,
-    template: `%s | ${site.name}`,
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s — ${site.name}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.name} | ${site.tagline}`,
+    title: `${site.name} — ${site.tagline}`,
     description: site.description,
     url: site.domain,
     siteName: site.name,

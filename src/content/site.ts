@@ -239,7 +239,7 @@ export const aboutPage = {
   kicker: "Over ReServe",
   heading: "Waarom ReServe bestaat",
   paragraphs: [
-    "Padel is de snelst groeiende sport van Nederland, en elke wedstrijd, training en toernooi laat hetzelfde achter: gebruikte ballen en lege kokers. Jaarlijks verdwijnen er honderdduizenden padelballen in het restafval.",
+    "Padel is de snelst groeiende sport van Nederland, en elke wedstrijd, training en toernooi laat hetzelfde achter: gebruikte ballen en lege kokers. Jaarlijks worden er in Nederland naar schatting ruim 5 miljoen tennis- en padelballen afgedankt. Het overgrote deel hiervan, miljoenen ballen per jaar, verdwijnt alsnog bij het restafval. Omdat ze in de verbrandingsoven belanden, gaan waardevolle grondstoffen als rubber en vilt verloren.",
     "ReServe, een initiatief van Délan Klomp, wil die stroom zichtbaar maken én verminderen. Samen met padelclubs plaatsen we herkenbare inzamelpunten waar spelers hun gebruikte ballen en kokers eenvoudig kwijt kunnen.",
     "We staan bewust aan het begin: tijdens de pilotfase onderzoeken we hoeveel er binnenkomt, in welke staat, en welke routes voor hergebruik en recycling het beste passen. Die kennis delen we met clubs, merken en verwerkers die mee willen bouwen aan een circulaire padelsport.",
   ],
