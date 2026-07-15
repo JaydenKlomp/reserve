@@ -48,7 +48,7 @@ export const steps = {
       title: "Vat op locatie",
       body: "De club ontvangt een ReServe-inzamelvat op een zichtbare plek.",
       detail:
-        "We stemmen samen een goede plek af — bij de banen, de bar of de entree. Het vat is direct herkenbaar en meteen klaar voor gebruik.",
+        "We stemmen samen een goede plek af: bij de banen, de bar of de entree. Het vat is direct herkenbaar en meteen klaar voor gebruik.",
     },
     {
       title: "Spelers leveren in",
@@ -60,7 +60,7 @@ export const steps = {
       title: "Ophaalmoment",
       body: "Zodra het vat vol is, plant ReServe een ophaalmoment.",
       detail:
-        "De club geeft een seintje of we plannen het periodiek in. ReServe komt langs en leegt of wisselt het vat — de club heeft er geen werk aan.",
+        "De club geeft een seintje of we plannen het periodiek in. ReServe komt langs en leegt of wisselt het vat, de club heeft er geen werk aan.",
     },
     {
       title: "Onderzoek & verwerking",
@@ -155,12 +155,12 @@ export const clubsPage = {
     },
     {
       title: "Vooroplopen",
-      body: "Als één van de eerste ReServe-clubs bouw je mee aan een circulaire padelsport — een verhaal dat je als club mag uitdragen.",
+      body: "Als één van de eerste ReServe-clubs bouw je mee aan een circulaire padelsport, een verhaal dat je als club mag uitdragen.",
     },
   ],
   process: {
     heading: "Wat vraagt het van jouw club?",
-    sub: "Weinig — dat is precies het idee.",
+    sub: "Weinig, dat is precies het idee.",
     items: [
       {
         title: "Een zichtbare plek",
@@ -172,7 +172,7 @@ export const clubsPage = {
       },
       {
         title: "Wij doen de rest",
-        body: "Leveren, ophalen, registreren en het vervolgtraject — daar heeft de club geen omkijken naar.",
+        body: "Leveren, ophalen, registreren en het vervolgtraject: daar heeft de club geen omkijken naar.",
       },
     ],
   },
@@ -182,7 +182,7 @@ export const clubsPage = {
       {
         question: "Wat mag er in het vat?",
         answer:
-          "Gebruikte padelballen en lege kunststof kokers. Ander afval hoort er niet in — zo houden we de stroom schoon voor hergebruik en recycling.",
+          "Gebruikte padelballen en lege kunststof kokers. Ander afval hoort er niet in, zo houden we de stroom schoon voor hergebruik en recycling.",
       },
       {
         question: "Wie leegt het vat?",
@@ -196,13 +196,13 @@ export const clubsPage = {
       {
         question: "Wat levert het onze club op?",
         answer:
-          "Een zichtbare duurzame stap richting leden en bezoekers, en een verhaal dat je als club mag uitdragen — inclusief cijfers over wat er is ingezameld.",
+          "Een zichtbare duurzame stap richting leden en bezoekers, en een verhaal dat je als club mag uitdragen, inclusief cijfers over wat er is ingezameld.",
       },
     ],
   },
   cta: {
     heading: "Plaats een ReServe-vat op jouw club",
-    sub: "Sluit je aan bij The Padellers en Arenal — en loop voorop in een duurzamere padelsport.",
+    sub: "Sluit je aan bij The Padellers en Arenal en loop voorop in een duurzamere padelsport.",
     label: "Vul het formulier in",
     href: "#contact",
   },
@@ -215,7 +215,7 @@ export const brandsPage = {
   kicker: "Voor merken",
   heading: "Werk samen aan zichtbare circulariteit",
   intro:
-    "Padel groeit hard — en de afvalstroom groeit mee. ReServe biedt merken een geloofwaardige plek in het duurzame verhaal van de sport.",
+    "Padel groeit hard, en de afvalstroom groeit mee. ReServe biedt merken een geloofwaardige plek in het duurzame verhaal van de sport.",
   offers: [
     {
       title: "Zichtbaarheid op locatie",
@@ -239,13 +239,13 @@ export const aboutPage = {
   kicker: "Over ReServe",
   heading: "Waarom ReServe bestaat",
   paragraphs: [
-    "Padel is de snelst groeiende sport van Nederland — en elke wedstrijd, training en toernooi laat hetzelfde achter: gebruikte ballen en lege kokers. Jaarlijks verdwijnen er honderdduizenden padelballen in het restafval.",
+    "Padel is de snelst groeiende sport van Nederland, en elke wedstrijd, training en toernooi laat hetzelfde achter: gebruikte ballen en lege kokers. Jaarlijks verdwijnen er honderdduizenden padelballen in het restafval.",
     "ReServe, een initiatief van Délan Klomp, wil die stroom zichtbaar maken én verminderen. Samen met padelclubs plaatsen we herkenbare inzamelpunten waar spelers hun gebruikte ballen en kokers eenvoudig kwijt kunnen.",
     "We staan bewust aan het begin: tijdens de pilotfase onderzoeken we hoeveel er binnenkomt, in welke staat, en welke routes voor hergebruik en recycling het beste passen. Die kennis delen we met clubs, merken en verwerkers die mee willen bouwen aan een circulaire padelsport.",
   ],
   cta: {
     heading: "Kennismaken of meedenken?",
-    sub: "Of je nu een club, merk of verwerker bent — we horen graag van je.",
+    sub: "Of je nu een club, merk of verwerker bent, we horen graag van je.",
     label: "Neem contact op",
     href: "/contact",
   },
@@ -261,7 +261,7 @@ export const pilotPage = {
     "In juli 2026 startte ReServe een pilot bij The Padellers en Arenal in Kerkrade. Hier staan de eerste inzamelvaten, en hier leren we wat er nodig is om padel circulair te maken.",
   goals: [
     "Hoeveel ballen en kokers komen er binnen, en hoe snel?",
-    "In welke staat zijn de materialen — en wat betekent dat voor hergebruik of recycling?",
+    "In welke staat zijn de materialen, en wat betekent dat voor hergebruik of recycling?",
     "Wat werkt er in de praktijk voor clubs en spelers?",
   ],
   timeline: [

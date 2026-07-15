@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-line-dark py-4 text-center text-xs text-muted-dark">
-        © {new Date().getFullYear()} {site.name} — reservepadel.nl
+        © {new Date().getFullYear()} {site.name}, reservepadel.nl
       </div>
     </footer>
   );

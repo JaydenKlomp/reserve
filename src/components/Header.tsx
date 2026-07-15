@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-ink/90 backdrop-blur border-b border-line-dark">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link href="/" aria-label={`${site.name} — home`} onClick={() => setOpen(false)}>
+        <Link href="/" aria-label={`${site.name}, home`} onClick={() => setOpen(false)}>
           <Image src="/brand/logo.png" alt={site.name} width={900} height={420} priority className="h-10 w-auto" />
         </Link>
 
